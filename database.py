@@ -6,6 +6,7 @@
 # -----------------------------------------------------------------------
 
 import os
+import time
 import sqlalchemy
 import sqlalchemy.orm
 import dotenv
@@ -40,21 +41,52 @@ _engine = sqlalchemy.create_engine(_DATABASE_URL)
 # Function to create the projects table in the database
 def create_project_table():
     Base.metadata.create_all(_engine)
-    print("Projects table created successfully.")
+    print("database.py: Projects table created successfully.")
 
 # Function to add a new project to the database
-def add_project(new_project):
+def add_project(
+        title, description, date_finished, image_link, github_link):
+    # If the project is already in the database, do not add it
+    projects = get_projects(title)
+    if projects:
+        print("database.py: Project already in Database")
+        return
+    
+    new_project = Project(
+        title=title,
+        description=description,
+        date_finished=date_finished,
+        image_link=image_link,
+        github_link=github_link
+    )
+
     with sqlalchemy.orm.Session(_engine) as session:
         session.add(new_project)
         session.commit()
-    print("Project added successfully.")
+    print("database.py: Project added successfully.")
+
+# Function to remove a project from the database
+def remove_project(title):
+
+    with sqlalchemy.orm.Session(_engine) as session:
+        # Find the project by title and delete it
+        project_to_remove = session.query(Project).filter(
+            Project.title.ilike(title+'%')
+        ).first()
+
+        if project_to_remove:
+            session.delete(project_to_remove)
+            session.commit()
+            print("database.py: Project removed successfully.")
+        else:
+            print("database.py: Project could not be found")
 
 # Function to clear all entries from the projects table
 def clear_project_table():
     with sqlalchemy.orm.Session(_engine) as session:
         session.query(Project).delete()
         session.commit()
-    print("All projects cleared from the table")
+    print("database.py: All projects cleared from the table")
 
 # Function to retrieve projects by title from the database
 def get_projects(title):
@@ -84,14 +116,7 @@ def get_projects(title):
 
 # Test function to add a sample project
 def _test1():
-    new_project = Project(
-        title="test",
-        description="test",
-        date_finished="test",
-        image_link="test",
-        github_link="test"
-    )
-    add_project(new_project)
+    add_project("test", "test", "test", "test", "test")
 
 # Test function to retrieve and display projects with title 'test'
 def _test2():
@@ -108,8 +133,14 @@ def _test2():
 def _test3():
     clear_project_table()
 
+# Test function to remove a project from the table
+def _test4():
+    add_project("test2", "test", "test", "test", "test")
+    remove_project("test2")
+
 # Run test functions if the script is executed directly
 if __name__ == '__main__':
     _test3()
     _test1()
     _test2()
+    _test4()
