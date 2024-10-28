@@ -5,8 +5,11 @@
 # Author: Louis Larsen
 # -----------------------------------------------------------------------
 
+# Includes serveral essential functions for managing the backend database
+
+# -----------------------------------------------------------------------
+
 import os
-import time
 import sqlalchemy
 import sqlalchemy.orm
 import dotenv
