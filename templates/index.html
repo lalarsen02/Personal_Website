@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Louis Larsen</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+      .bd-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* To push .navbar to the right */
+        padding: 20px; /* Optional padding for spacing */
+      }
+
+      .portfolio-logo {
+        margin-right: 20px; /* Space between logo and navbar */
+      }
+
+      .navbar {
+        flex-grow: 1; /* Optional: ensures navbar takes remaining space */
+      }
+
+      .navbar-item {
+        font-size: 1.25rem;  /* Change font size as needed */
+        padding: 0.75rem 1rem; /* Adjust padding for item spacing */
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'header.html' %}
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        Hello World
+      </h1>
+      <p class="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
+    </div>
+  </section>
+  </body>
+</html>
