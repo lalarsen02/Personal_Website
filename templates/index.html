@@ -39,6 +39,48 @@
         padding: 0.5em 0.75em;
       }
 
+      .main-hero {
+        background-image: url("{{ url_for('static', filename='background.jpg') }}");
+        background-size: cover;          /* Ensures the image covers the whole page */
+        background-position: center;     /* Centers the background image */
+        background-repeat: no-repeat;    /* Prevents the image from repeating */
+      }
+
+      .main-hero h1 {
+        margin-top: 120px;
+      }
+
+      .main-hero h2 {
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: 60px;
+        font-weight: 800;
+        line-height: 64px;
+        color: white;
+      }
+
+      h2 {
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 32px;
+        color: white;
+      }
+
+      p.body1 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
+        margin-right: 100px;
+        color: white;
+      }
+
+      .styled-image {
+        border-radius: 15px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+      }
+
       /* Style for the navbar-menu to appear on the right as a box */
       @media screen and (max-width: 1023px) {
         .navbar-menu {
@@ -49,19 +91,37 @@
           transform-origin: right top;
           z-index: 5;
         }
+
+        .main-hero h1 {
+          margin-top: 0px;
+        }
       }
     </style>
   </head>
   <body>
     {% include 'header.html' %}
-  <section class="section">
-    <div class="container">
-      <h1 class="title">
-        Hello World
-      </h1>
-      <p class="subtitle">
-        My first website with <strong>Bulma</strong>!
-      </p>
+  <section class="main-hero hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-three-fifths">
+            <h1>Louis Larsen</h1>
+            <h2>Software Engineer</h2>
+            <p class="body1">
+              I’m a recent graduate of Princeton University who majored in computer science and minored in music performance and composition. With these two different worlds, I merge creativity with technical expertise to develop cutting-edge applications.
+            </p>
+            <p>
+              <br>
+              <a class="button">
+                See My Work
+              </a>
+            </p>
+          </div>
+          <div class="column">
+            <img class="is-fullwidth styled-image" src="{{ url_for('static', filename='IMG_2387.jpg') }}">
+          </div>
+        </div>
+      </div>
     </div>
   </section>
     {% include 'footer.html' %}
