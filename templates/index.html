@@ -15,35 +15,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-      .bd-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* To push .navbar to the right */
-        padding: 20px; /* Optional padding for spacing */
-      }
-
       .portfolio-logo {
-        margin-right: 20px; /* Space between logo and navbar */
+        height: 44px;
+        vertical-align: middle;
       }
 
-      .navbar {
-        flex-grow: 1; /* Optional: ensures navbar takes remaining space */
+      .portfolio-navbar {
+        padding: 16px 0;
       }
 
-      .navbar-item {
-        align-items: center;
-        font-size: 1.1rem;
-        border-radius: 0.5em;
-        display: flex;
-        gap: 0.5em;
-        padding: 0.5em 0.75em;
+      .navbar-menu.is-active .link {
+        display: inline-flex;
+        flex-direction: row;
+        gap: 0.5rem;
       }
 
       .main-hero {
-        background-image: url("{{ url_for('static', filename='background.jpg') }}");
-        background-size: cover;          /* Ensures the image covers the whole page */
-        background-position: center;     /* Centers the background image */
-        background-repeat: no-repeat;    /* Prevents the image from repeating */
+        background-color: #1d3651;
       }
 
       .main-hero h1 {
@@ -72,7 +60,7 @@
         font-size: 20px;
         font-weight: 400;
         line-height: 28px;
-        margin-right: 100px;
+        margin-right: 100px ;
         color: white;
       }
 
@@ -83,8 +71,13 @@
 
       /* Style for the navbar-menu to appear on the right as a box */
       @media screen and (max-width: 1023px) {
-        .navbar-menu {
+        .portfolio-menu {
           padding: 1.5em;
+          border-radius: 1em;
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+          border-color: #b3b3b3;
+          border-style: solid;
+          border-width: 1px;
           position: absolute;
           right: 2rem;
           top: 4.5rem;
@@ -92,38 +85,48 @@
           z-index: 5;
         }
 
+        .portfolio-navbar {
+          padding: 0 0;
+        }
+
         .main-hero h1 {
           margin-top: 0px;
+        }
+
+        .portfolio-footer {
+          box-shadow: none;
+          justify-content: center;
+          align-items: center;
         }
       }
     </style>
   </head>
-  <body>
+  <body class="has-navbar-fixed-top">
     {% include 'header.html' %}
-  <section class="main-hero hero">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-three-fifths">
-            <h1>Louis Larsen</h1>
-            <h2>Software Engineer</h2>
-            <p class="body1">
-              I’m a recent graduate of Princeton University who majored in computer science and minored in music performance and composition. With these two different worlds, I merge creativity with technical expertise to develop cutting-edge applications.
-            </p>
-            <p>
-              <br>
-              <a class="button">
-                See My Work
-              </a>
-            </p>
-          </div>
-          <div class="column">
-            <img class="is-fullwidth styled-image" src="{{ url_for('static', filename='IMG_2387.jpg') }}">
+    <section class="main-hero hero">
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns">
+            <div class="column is-three-fifths">
+              <h1>Louis Larsen</h1>
+              <h2>Software Engineer</h2>
+              <p class="body1">
+                I’m a recent graduate of Princeton University who majored in computer science and minored in music performance and composition. With these two different worlds, I merge creativity with technical expertise to develop cutting-edge applications.
+              </p>
+              <p>
+                <br>
+                <a class="button">
+                  See My Work
+                </a>
+              </p>
+            </div>
+            <div class="column">
+              <img class="is-fullwidth styled-image" src="{{ url_for('static', filename='IMG_2387.jpg') }}">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
     {% include 'footer.html' %}
   </body>
 </html>
