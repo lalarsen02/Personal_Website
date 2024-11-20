@@ -22,6 +22,8 @@
 
       .portfolio-navbar {
         padding: 16px 0;
+        background-color: #ffffff;
+        border-bottom: 1px solid #ebebeb;
       }
 
       .navbar-menu.is-active .link {
@@ -31,6 +33,7 @@
       }
 
       .main-hero {
+        padding-top: 32px;
         background-color: #1d3651;
       }
 
@@ -40,6 +43,11 @@
 
       .main-hero h2 {
         margin-bottom: 24px;
+      }
+
+      .head-navbar-item {
+        color: #0d1b2a;
+        font-size: 1.1rem;
       }
 
       h1 {
@@ -60,7 +68,7 @@
         font-size: 20px;
         font-weight: 400;
         line-height: 28px;
-        margin-right: 100px ;
+        margin-right: 100px;
         color: white;
       }
 
@@ -69,8 +77,40 @@
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
       }
 
-      /* Style for the navbar-menu to appear on the right as a box */
+      .footer {
+        background-color: #142236;
+      }
+
+      .hero-button {
+        background-color: #fed523;
+        border-color: #ddb71d;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .portfolio-navbar-footer {
+        background-color: #142236;
+      }
+
+      .portfolio-footer {
+        background-color: #142236;
+      }
+
+      .footer-navbar-item {
+        color: #d8d8d8;
+        font-size: 1.1rem;
+      }
+
+      @media screen and (max-width: 1215px) {
+        .main-hero h1 {
+          margin-top: 60px;
+        }
+      }
+
       @media screen and (max-width: 1023px) {
+        .main-hero {
+          padding-top: 0px;
+        }
+
         .portfolio-menu {
           padding: 1.5em;
           border-radius: 1em;
@@ -99,6 +139,12 @@
           align-items: center;
         }
       }
+
+      @media screen and (max-width: 768px) {
+        h1, h2, p.body1 {
+          margin: 0; /* Optional: Remove any default margins */
+        }
+      }
     </style>
   </head>
   <body class="has-navbar-fixed-top">
@@ -115,18 +161,19 @@
               </p>
               <p>
                 <br>
-                <a class="button">
+                <a class="button hero-button">
                   See My Work
                 </a>
               </p>
             </div>
             <div class="column">
-              <img class="is-fullwidth styled-image" src="{{ url_for('static', filename='IMG_2387.jpg') }}">
+              <img class="is-fullwidth styled-image" src="{{ url_for('static', filename='Portrait_full.png') }}">
             </div>
           </div>
         </div>
       </div>
     </section>
+    
     {% include 'footer.html' %}
   </body>
 </html>
