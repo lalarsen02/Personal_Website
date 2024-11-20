@@ -39,29 +39,23 @@
 
       .main-hero h1 {
         margin-top: 120px;
-      }
-
-      .main-hero h2 {
-        margin-bottom: 24px;
-      }
-
-      .head-navbar-item {
-        color: #0d1b2a;
-        font-size: 1.1rem;
-      }
-
-      h1 {
         font-size: 60px;
         font-weight: 800;
         line-height: 64px;
         color: white;
       }
 
-      h2 {
+      .main-hero h2 {
+        margin-bottom: 24px;
         font-size: 30px;
         font-weight: 800;
         line-height: 32px;
         color: white;
+      }
+
+      .head-navbar-item {
+        color: #0d1b2a;
+        font-size: 1.1rem;
       }
 
       p.body1 {
@@ -70,6 +64,12 @@
         line-height: 28px;
         margin-right: 100px;
         color: white;
+      }
+
+      p.body2 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 28px;
       }
 
       .styled-image {
@@ -99,6 +99,21 @@
         color: #d8d8d8;
         font-size: 1.1rem;
       }
+
+      .contact h2 {
+        margin-bottom: 16px;
+        font-size: 40px;
+        font-weight: 800;
+        line-height: 45px;
+        color: #202020
+      }
+/* 
+      .contact-button {
+        color: #202020;
+        background-color: #fed523;
+        border-color: #ddb71d;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      } */
 
       @media screen and (max-width: 1215px) {
         .main-hero h1 {
@@ -173,7 +188,139 @@
         </div>
       </div>
     </section>
-    
+    <section class="section contact">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-two-fifths">
+            <h2>Let's Connect</h2>
+            <p class="body2">
+              Thank you for visiting my web portfolio. If you have any questions regarding the projects showcased here or are interested in collaborating, feel free to send me an email! Let's work together and bring ideas to life!
+            </p>
+          </div>
+          <div class="column">
+            <div class="field">
+              <label class="label">Name</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Name">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Email</label>
+              <div class="control has-icons-right">
+                <input class="input" type="text" placeholder="Email">
+              </div>
+            </div>
+            <div class="field">
+              <label class="label">Message</label>
+              <div class="control">
+                <textarea class="textarea" placeholder="Message"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <div class="control">
+                <button class="button is-link">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     {% include 'footer.html' %}
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Select the email input element and its parent field
+    const emailInput = document.querySelector(".contact .field:nth-child(2) .input");
+    const emailControl = emailInput.closest(".control");
+    const emailField = emailInput.closest(".field");
+
+    // Function to validate an email using regex
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
+    // Add event listener for input event
+    emailInput.addEventListener("input", () => {
+      // Remove any existing status spans
+      const existingIcon = emailControl.querySelector(".icon");
+      if (existingIcon) existingIcon.remove();
+      const existingHelp = emailField.querySelector(".help");
+      if (existingHelp) existingHelp.remove();
+
+      // Remove any existing classes
+      emailInput.classList.remove("is-danger", "is-success");
+
+      // Validate the email and add appropriate class and icon
+      const iconSpan = document.createElement("span");
+      iconSpan.classList.add("icon", "is-small", "is-right");
+      const helpP = document.createElement("p");
+      helpP.classList.add("help");
+
+      if (isValidEmail(emailInput.value)) {
+        emailInput.classList.add("is-success");
+        iconSpan.innerHTML = '<i class="fas fa-check"></i>';
+        helpP.classList.add("is-success")
+        helpP.innerHTML = 'This email is valid';
+      } else {
+        emailInput.classList.add("is-danger");
+        iconSpan.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+        helpP.classList.add("is-danger")
+        helpP.innerHTML = 'This email is invalid';
+      }
+
+      // Append the icon span below the email input
+      emailControl.appendChild(iconSpan);
+
+      // Append the help paragraph to the email field
+      emailField.appendChild(helpP);
+
+    });
+  });
+</script>
+
+<script>
+  document.querySelector(".button.is-link").addEventListener("click", async function (e) {
+    e.preventDefault();
+
+    const name = document.querySelector("input[placeholder='Name']").value;
+    const email = document.querySelector("input[placeholder='Email']").value;
+    const message = document.querySelector("textarea[placeholder='Message']").value;
+
+    if (!name || !email || !message) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Function to validate an email using regex
+    const isValidEmail = (email) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    };
+
+    if (!isValidEmail(email)) {
+      alert("Email Not Valid");
+      return;
+    }
+
+    try {
+      const response = await fetch("/send_email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert(result.message);
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      alert("Failed to send email. Please try again later.");
+      console.error(error);
+    }
+  });
+</script>
