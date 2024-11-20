@@ -305,6 +305,27 @@
     const email = document.querySelector("input[placeholder='Email']").value;
     const message = document.querySelector("textarea[placeholder='Message']").value;
 
+    // Highlight empty fields with is-danger class
+    const nameInput = document.querySelector("input[placeholder='Name']");
+    const emailInput = document.querySelector("input[placeholder='Email']");
+    const messageInput = document.querySelector("textarea[placeholder='Message']");
+
+    // Find closest fields to the inputs
+    const nameField = nameInput.closest(".field");
+    const emailField = emailInput.closest(".field");
+    const messageField = messageInput.closest(".field");
+
+    // Ensure no duplicate help messages
+    if (nameField.querySelector(".help.is-danger")) {
+      nameField.querySelector(".help.is-danger").remove();
+    }
+    if (emailField.querySelector(".help.is-danger")) {
+      emailField.querySelector(".help.is-danger").remove();
+    }
+    if (messageField.querySelector(".help.is-danger")) {
+      messageField.querySelector(".help.is-danger").remove();
+    }
+
     // Helper function to add a notification
     const addNotification = (type, message) => {
       // Create a new notification
@@ -331,40 +352,26 @@
     };
 
     if (!isValidEmail(email)) {
+      const emailHelp = document.createElement("p");
+      emailHelp.classList.add("help", "is-danger", "none");
+      emailHelp.innerHTML = "This email is invalid.";
+
+      emailInput.classList.add("is-danger");
+      emailField.appendChild(emailHelp);
+
       addNotification("is-danger", "Failed to Send Email. Email is invalid. Email addresses should follow username@domain.com.");
       button.classList.remove("is-loading");
       error = true;
     }
 
     if (!name || !email || !message) {
-      // Highlight empty fields with is-danger class
-      const nameInput = document.querySelector("input[placeholder='Name']");
-      const emailInput = document.querySelector("input[placeholder='Email']");
-      const messageInput = document.querySelector("textarea[placeholder='Message']");
-
-      // Find closest fields to the inputs
-      const nameField = nameInput.closest(".field");
-      const emailField = emailInput.closest(".field");
-      const messageField = messageInput.closest(".field");
-
-      // Ensure no duplicate help messages
-      if (nameField.querySelector(".help.is-danger")) {
-        nameField.querySelector(".help.is-danger").remove();
-      }
-      if (emailField.querySelector(".help.is-danger")) {
-        emailField.querySelector(".help.is-danger").remove();
-      }
-      if (messageField.querySelector(".help.is-danger")) {
-        messageField.querySelector(".help.is-danger").remove();
-      }
-
       // Create help texts below inputs
       const nameHelp = document.createElement("p");
       nameHelp.classList.add("help", "is-danger");
       nameHelp.innerHTML = "Name is required.";
 
       const emailHelp = document.createElement("p");
-      emailHelp.classList.add("help", "is-danger");
+      emailHelp.classList.add("help", "is-danger", "none");
       emailHelp.innerHTML = "Email is required.";
 
       const messageHelp = document.createElement("p");
