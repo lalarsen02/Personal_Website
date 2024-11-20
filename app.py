@@ -35,8 +35,6 @@ app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
-print(os.environ.get('MAIL_USERNAME'))
-
 mail = flask_mail.Mail(app)
 
 # -----------------------------------------------------------------------
@@ -72,14 +70,14 @@ def send_email():
 
         return flask.jsonify(
             {"status": "success", 
-             "message": "Email sent Successfully"}
+             "message": "Email sent successfully."}
              ), 200
 
     except Exception as ex:
         print("app.py: " + str(ex), file=sys.stderr)
         return flask.jsonify(
             {"status": "error", 
-             "message": "Failed to send email"}
+             "message": "Failed to send email. Please Try Again Later."}
              ), 500
 
 # -----------------------------------------------------------------------
