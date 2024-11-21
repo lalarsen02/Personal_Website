@@ -1,0 +1,161 @@
+/* ----------------------------------------------------------------------- */
+/* style.css                                                               */
+/* Author: Louis Larsen                                                    */
+/* ----------------------------------------------------------------------- */
+
+.portfolio-logo {
+height: 44px;
+vertical-align: middle;
+}
+
+.portfolio-navbar {
+padding: 16px 0;
+background-color: #ffffff;
+border-bottom: 1px solid #ebebeb;
+}
+
+.navbar-menu.is-active .link {
+display: inline-flex;
+flex-direction: row;
+gap: 0.5rem;
+}
+
+.main-hero {
+padding-top: 32px;
+background-color: #1d3651;
+}
+
+.main-hero h1 {
+margin-top: 120px;
+font-size: 60px;
+font-weight: 800;
+line-height: 64px;
+color: white;
+}
+
+.main-hero h2 {
+margin-bottom: 24px;
+font-size: 30px;
+font-weight: 800;
+line-height: 32px;
+color: white;
+}
+
+.head-navbar-item {
+color: #0d1b2a;
+font-size: 1.1rem;
+}
+
+p.body1 {
+font-size: 20px;
+font-weight: 400;
+line-height: 28px;
+margin-right: 100px;
+color: white;
+}
+
+p.body2 {
+font-size: 20px;
+font-weight: 400;
+line-height: 28px;
+margin-right: 100px;
+}
+
+.styled-image {
+border-radius: 15px;
+box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+background-color: #142236;
+}
+
+.hero-button {
+background-color: #fed523;
+border-color: #ddb71d;
+box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-navbar-footer {
+background-color: #142236;
+}
+
+.portfolio-footer {
+background-color: #142236;
+}
+
+.footer-navbar-item {
+color: #d8d8d8;
+font-size: 1.1rem;
+}
+
+.contact h2 {
+margin-top: 60px;
+margin-bottom: 16px;
+font-size: 40px;
+font-weight: 800;
+line-height: 45px;
+color: #202020
+}
+
+@media screen and (max-width: 1215px) {
+.main-hero h1 {
+    margin-top: 60px;
+}
+
+p.body1 {
+    margin-right: 50px;
+}
+
+p.body2 {
+    margin-right: 50px;
+}
+
+.contact h2 {
+    margin-top: 30px;
+}
+}
+
+@media screen and (max-width: 1023px) {
+.main-hero {
+    padding-top: 0px;
+}
+
+.portfolio-menu {
+    padding: 1.5em;
+    border-radius: 1em;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    border-color: #b3b3b3;
+    border-style: solid;
+    border-width: 1px;
+    position: absolute;
+    right: 2rem;
+    top: 4.5rem;
+    transform-origin: right top;
+    z-index: 5;
+}
+
+.portfolio-navbar {
+    padding: 0 0;
+}
+
+.main-hero h1 {
+    margin-top: 0px;
+}
+
+.portfolio-footer {
+    box-shadow: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact h2 {
+    margin-top: 0px;
+}
+}
+
+@media screen and (max-width: 768px) {
+h1, h2, p.body1, p.body2 {
+    margin: 0;
+}
+}
