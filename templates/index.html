@@ -70,6 +70,7 @@
         font-size: 20px;
         font-weight: 400;
         line-height: 28px;
+        margin-right: 100px;
       }
 
       .styled-image {
@@ -101,23 +102,29 @@
       }
 
       .contact h2 {
+        margin-top: 60px;
         margin-bottom: 16px;
         font-size: 40px;
         font-weight: 800;
         line-height: 45px;
         color: #202020
       }
-/* 
-      .contact-button {
-        color: #202020;
-        background-color: #fed523;
-        border-color: #ddb71d;
-        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-      } */
 
       @media screen and (max-width: 1215px) {
         .main-hero h1 {
           margin-top: 60px;
+        }
+
+        p.body1 {
+          margin-right: 50px;
+        }
+
+        p.body2 {
+          margin-right: 50px;
+        }
+
+        .contact h2 {
+          margin-top: 30px;
         }
       }
 
@@ -153,11 +160,15 @@
           justify-content: center;
           align-items: center;
         }
+
+        .contact h2 {
+          margin-top: 0px;
+        }
       }
 
       @media screen and (max-width: 768px) {
-        h1, h2, p.body1 {
-          margin: 0; /* Optional: Remove any default margins */
+        h1, h2, p.body1, p.body2 {
+          margin: 0;
         }
       }
     </style>
