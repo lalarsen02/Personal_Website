@@ -1,0 +1,18 @@
+Title: RockBand
+
+Description:
+I started my computer science journey in the fall of 2021. In the first half of my sophomore year, I took "Computer Science: An Interdisciplinary Approach," which served as my introduction to the field. The course taught basic computer science principles and issues while utilizing diverse areas of study, from science-related fields like physics, chemistry, and biology to humanities-related domains like linguistics and music. This course sparked my passion for computer science – the way it bridged seemingly unrelated disciplines to solve complex problems fascinated me and inspired me to explore the endless possibilities of this field. 
+
+This was the course’s final project, where I developed a fully functioning command-line DAW (Digital Audio Workstation) for music production. It was built upon a prior assignment titled "Guitar Hero," where I implemented the Karplus-Strong algorithm to simulate the sound of a plucked guitar string. Building on this, I included instruments like bass strings, a synthesizer, and various drum sounds. Beyond instrument simulation, I incorporated a recording and playback system utilizing a symbol table so users could seamlessly play what they created at any time. Finally, I added the capability to manipulate the audio with effects, like reversing the audio, adding delay and reverb, and applying distortion.
+
+In several respects, however, the program faced significant limitations born out of inexperience. For instance, I had yet to figure out how to incorporate a metronome during recording sessions, leaving users without a crucial tool for maintaining rhythm. Furthermore, certain aspects of the software were inefficient, which resulted in high latency. This delay meant there was a noticeable lag between the moment the user pressed a key and when they actually heard the corresponding sound, detracting from the overall experience. 
+
+Despite these limitations, this project not only marked the culmination of my first steps into computer science but also solidified my passion for combining creativity with technical problem-solving. By exploring the intersection of music and computer science, I was instilled with a deep appreciation for the transformative power of technology. I was motivated to pursue my studies further and explore new innovative ways to merge creativity with coding.
+
+Date Finished: 12/15/21
+
+Image Link: https://i.ibb.co/WVvybJW/Rock-Band-Picture.png
+
+YouTube Link: https://youtu.be/hS5Fu2Xr_eU
+
+Github Link: https://github.com/lalarsen02/RockBand

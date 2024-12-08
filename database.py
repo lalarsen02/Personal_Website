@@ -30,11 +30,17 @@ Base = sqlalchemy.orm.declarative_base()
 # Define a model class for the 'projects' table
 class Project(Base):
     __tablename__ = 'projects'
-    title = sqlalchemy.Column(sqlalchemy.String, primary_key=True)  # Primary key column for project title
-    description = sqlalchemy.Column(sqlalchemy.String)              # Column for project description
-    date_finished = sqlalchemy.Column(sqlalchemy.String)            # Column for project completion date
-    image_link = sqlalchemy.Column(sqlalchemy.String)               # Column for image URL related to the project
-    github_link = sqlalchemy.Column(sqlalchemy.String)              # Column for project's GitHub link
+    title = sqlalchemy.Column(sqlalchemy.String, primary_key=True)                 # Primary key column for project title
+    description = sqlalchemy.Column(sqlalchemy.String)                             # Column for project description
+    date_finished = sqlalchemy.Column(sqlalchemy.Date)                             # Column for project completion date
+    image_link = sqlalchemy.Column(sqlalchemy.String)                              # Column for image URL related to the project
+    imagesource_text = sqlalchemy.Column(sqlalchemy.String, nullable=True)         # Column for image source text related to the project (Make Optional)
+    imagesource_link = sqlalchemy.Column(sqlalchemy.String, nullable=True)         # Column for image source link related to the project (Make Optional)
+    youtube_link = sqlalchemy.Column(sqlalchemy.String, nullable=True)             # Column for youtube video related to the project (Make Optional)
+    presentation_link = sqlalchemy.Column(sqlalchemy.String, nullable=True)        # Column for presentation related to the project (Make Optional)
+    writeup_link = sqlalchemy.Column(sqlalchemy.String, nullable=True)             # Column for writeup related to the project (Make Optional)
+    github_link = sqlalchemy.Column(sqlalchemy.String, nullable=True)              # Column for github link related to the project (Make Optional)
+    other_links = sqlalchemy.Column(sqlalchemy.String, nullable=True)              # Column for any other links related to the project (Make Optional)
 
 # Create a database engine
 _engine = sqlalchemy.create_engine(_DATABASE_URL)
@@ -48,19 +54,22 @@ def create_project_table():
 
 # Function to add a new project to the database
 def add_project(
-        title, description, date_finished, image_link, github_link):
-    # If the project is already in the database, do not add it
-    projects = get_projects(title)
-    if projects:
-        print("database.py: Project already in Database")
-        return
+        title, description, date_finished, image_link, imagesource_text,
+        imagesource_link, youtube_link, presentation_link, writeup_link,
+        github_link, other_links):
     
     new_project = Project(
         title=title,
         description=description,
         date_finished=date_finished,
         image_link=image_link,
-        github_link=github_link
+        imagesource_text=imagesource_text,
+        imagesource_link=imagesource_link,
+        youtube_link=youtube_link,
+        presentation_link=presentation_link,
+        writeup_link=writeup_link,
+        github_link=github_link,
+        other_links=other_links
     )
 
     with sqlalchemy.orm.Session(_engine) as session:
@@ -92,14 +101,19 @@ def clear_project_table():
     print("database.py: All projects cleared from the table")
 
 # Function to retrieve projects by title from the database
-def get_projects(title):
+def get_projects(title='', sort='recent'):
     projects = []
 
     with sqlalchemy.orm.Session(_engine) as session:
         # Query for projects whose title matches the given string
-        query = session.query(Project).filter(
-            Project.title.ilike(title+'%')
-        )
+        if sort == 'recent':
+            query = session.query(Project).filter(
+                Project.title.ilike(title+'%')
+            ).order_by(Project.date_finished.desc())
+        elif sort == 'alpha':
+            query = session.query(Project).filter(
+                Project.title.ilike(title+'%')
+            ).order_by(Project.title)
         
         # Iterate over query results to build a list of project dictionaries
         table = query.all()
@@ -109,41 +123,16 @@ def get_projects(title):
                 'description': row.description,
                 'date_finished': row.date_finished,
                 'image_link': row.image_link,
-                'github_link': row.github_link
+                'imagesource_text': row.imagesource_text,
+                'imagesource_link': row.imagesource_link,
+                'youtube_link': row.youtube_link,
+                'presentation_link': row.presentation_link,
+                'writeup_link': row.writeup_link,
+                'github_link': row.github_link,
+                'other_links': row.other_links
             }
             projects.append(project)
 
     return projects
 
 # -----------------------------------------------------------------------
-
-# Test function to add a sample project
-def _test1():
-    add_project("test", "test", "test", "test", "test")
-
-# Test function to retrieve and display projects with title 'test'
-def _test2():
-    projects = get_projects('test')
-    for project in projects:
-        print(project['title'])
-        print(project['description'])
-        print(project['date_finished'])
-        print(project['image_link'])
-        print(project['github_link'])
-        print()
-
-# Test function to clear all projects from the table
-def _test3():
-    clear_project_table()
-
-# Test function to remove a project from the table
-def _test4():
-    add_project("test2", "test", "test", "test", "test")
-    remove_project("test2")
-
-# Run test functions if the script is executed directly
-if __name__ == '__main__':
-    _test3()
-    _test1()
-    _test2()
-    _test4()

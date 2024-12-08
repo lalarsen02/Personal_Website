@@ -5,6 +5,8 @@
 // Author: Louis Larsen
 // -----------------------------------------------------------------------
 
+"use strict";
+
 document.querySelector(".button.is-link").addEventListener("click", async function (e) {
     e.preventDefault();
 
@@ -150,9 +152,9 @@ document.querySelector(".button.is-link").addEventListener("click", async functi
 
     try {
         const response = await fetch("/send_email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message }),
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
         });
 
         const result = await response.json();

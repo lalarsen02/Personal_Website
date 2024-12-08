@@ -37,7 +37,9 @@
               </p>
             </div>
             <div class="column">
-              <img class="is-fullwidth styled-image" src="{{ url_for('static', filename='images/Portrait_full.png') }}">
+              <figure class="image is-fullwidth styled-image">
+                <img src="{{ url_for('static', filename='images/Portrait_full.png') }}">
+              </figure>
             </div>
           </div>
         </div>
@@ -46,28 +48,34 @@
     <section class="section skills">
       <div class="container">
         <div class="columns is-centered">
-          <div class="column is-one-third has-text-centered">
-            <img class="is-centered skill-clipart" src="{{ url_for('static', filename='images/gear_clipart.png') }}">
+          <div class="column is-one-third has-text-centered is-flex is-flex-direction-column is-align-items-center">
+            <figure class="image skill-clipart">
+              <img src="{{ url_for('static', filename='images/gear_clipart.png') }}">
+            </figure>
             <h3>Software Development</h3>
             <p class="body3">
               Algorithm Optimization, Parallel Computing, GUI Development
             </p>
           </div>
-          <div class="column skill has-text-centered">
-            <img class="is-centered skill-clipart" src="{{ url_for('static', filename='images/AI_chip_clipart_2.png') }}">
+          <div class="column skill has-text-centered is-flex is-flex-direction-column is-align-items-center">
+            <figure class="image skill-clipart">
+              <img src="{{ url_for('static', filename='images/AI_chip_clipart_2.png') }}">
+            </figure>
             <h3>Machine Learning</h3>
             <p class="body3">
               Transformers, CNNs, RNNs, LSTMs, PyTorch
             </p>
           </div>
-          <div class="column has-text-centered">
-            <img class="is-centered skill-clipart" src="{{ url_for('static', filename='images/web_dev_clipart_2.png') }}">
+          <div class="column has-text-centered is-flex is-flex-direction-column is-align-items-center">
+            <figure class="image skill-clipart">
+              <img src="{{ url_for('static', filename='images/web_dev_clipart_2.png') }}">
+            </figure>
             <h3>Web Development</h3>
             <p class="body3">
               Full-Stack Programming, Webserver Setup & Deployment, HTML, CSS, Flask
             </p>
           </div>
-        </div>
+        </div>                
       </div>
     </section>
     <section class="section contact">

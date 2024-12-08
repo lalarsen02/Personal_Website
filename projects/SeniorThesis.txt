@@ -1,0 +1,26 @@
+Title: Automatic Drum Transcription
+
+Description:
+This project was developed as my Senior Thesis, marking the culmination of my academic journey at Princeton University and providing me with a unique opportunity to engage in original research. 
+
+For this project, I examined a novel approach to Automatic Drum Transcription (ADT) using a Convolutional Neural Network (CNN) and a 2-layer Hierarchical Encoder-Decoder Transformer. The primary goal of ADT is to accurately and precisely transcribe drum sounds from audio recordings into a symbolic notion. In this project, that symbolic notation was a MIDI file, a digital music file format that stores note pitch/sound, duration, velocity, and timing. 
+
+The foundation of this thesis is "Automatic Piano Transcription with Hierarchical Frequency-Time Transformer," developed by Toyoma et al. Their model first utilizes a CNN to extract the most important features from the raw audio. A CNN was chosen because that architecture is the most effective at identifying the patterns and nuances in the time-frequency representation of drum sounds. This allows the CNN to distinguish between various other percussion instruments. Following feature extraction, the model uses a 2-layer Hierarchical Encoder-Decoder Transformer, which is more suited for sequence-to-sequence language tasks. The reasoning here is that playing music is like speaking a language; over time, specific patterns emerge. Transformers are particularly effective at understanding the context in which these patterns arise. The hierarchical approach ensures that both local and global patterns are captured, improving transcription accuracy.
+
+Throughout the project, I conducted extensive experiments using both the Expanded MIDI Groove Dataset (E-GMD) and the IMST Dataset. I fine-tuned hyperparameters and experimented with different configurations to optimize performance. I also updated the model to enable parallel processing, allowing multiple GPUs to simultaneously handle training and validation tasks. This significantly reduced training time and enhanced computational efficiency.
+
+Overall, this model demonstrated a state-of-the-art performance, scoring F1 scores 35% better than previous ADT models with the E-GMD dataset. This demonstrates a significant improvement in the realm of ADT, showcasing the potential of combining CNNs with transformer-based architectures in the realm of music signal processing.
+
+Date Finished: 05/03/24
+
+Image Link: https://i.ibb.co/6cCQfSM/Senior-Thesis.png
+
+Image Source Text: Image adapted from Wu et al., "A Review of Automatic Drum Transcription"
+
+Image Source Link: https://www.open-access.bcu.ac.uk/6180/1/Wu-et-al.-2018-A-review-of-automatic-drum-transcription.pdf
+
+Github Link: https://github.com/lalarsen02/Senior_Thesis
+
+Presentation Link: https://drive.google.com/file/d/12322uD-FLMNvpJ6I-dcg6XqK5BngVymU/view?usp=sharing
+
+Writeup Link: https://drive.google.com/file/d/1IhdrDEHuISRttZUo_ezQgItlKNHdki2Z/view?usp=sharing

@@ -1,0 +1,16 @@
+Title: Assignment Work Time Estimator
+
+Description:
+The "Assignment Work Time Estimator" was a web application designed to help Princeton students estimate the hours required for their weekly coursework, aiding their coursework selection and planning. This project was developed as a final assignment for "Advanced Programming Techniques," with three classmates: Boaz Yoo, Alexander Yoo, and David Oke. We created this tool in response to a request from "The McGraw Center for Teaching and Learning," a department at Princeton University that focused on improving teaching and learning. The McGraw Center was our client and partner in this project, guiding us in tailoring the website to meet their specific educational needs.
+
+The website’s main page was a course search page, where users could search for a specific course and input the amount of reading, writing, and studying they had to do in that class that week. The website would then compute a weighted average of the time each student who previously took that class reported spending on those tasks. For the scope of this project, those reports came from a simulated dataset consisting of hypothetical students' courseloads. Users could input multiple classes to get an all-around weekly estimate of coursework hours. Additionally, the website included a profile page where users could enter their major and any previous courses they had taken. This allowed the estimates to be tailored to their specific major and individual circumstances. Finally, there was an explore page that provided overall statistics for the particular course the user was interested in.
+
+This website was my first experience with web development and a hands-on introduction to the collaborative and technical challenges of building a functional, user-focused application. Within the team, I was a backend developer responsible for designing and managing the SQL database. Additionally, I wrote and integrated backend functions that seamlessly delivered this information to the website’s interface, ensuring users could access accurate and timely course workload predictions. This experience not only enhanced my technical skills but also reinforced the importance of teamwork and clear communication in delivering a successful project.
+
+<hr>
+
+Unfortunately, this site is not currently active due to the use of a hypothetical dataset. In the future, we hope to survey Princeton students to obtain a real sample of students' courseloads for use on the site.
+
+Date Finished: 05/09/23
+
+Image Link: https://i.ibb.co/XbFWv4X/AWTE.png

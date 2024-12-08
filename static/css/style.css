@@ -130,6 +130,7 @@ p.body3 {
 }
 
 .skill-clipart {
+    align-items: center;
     width: 95px;
     padding: 5px;
 }

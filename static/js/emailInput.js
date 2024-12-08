@@ -5,6 +5,8 @@
 // Author: Louis Larsen
 // -----------------------------------------------------------------------
 
+"use strict";
+
 document.addEventListener("DOMContentLoaded", () => {
     // Select the email input element and its parent field
     const emailInput = document.querySelector("input[placeholder='Email']");

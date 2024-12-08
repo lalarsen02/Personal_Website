@@ -1,0 +1,10 @@
+<div class="grid is-col-min-15">
+    {% for row in table: %}
+    <div class="cell">
+        <figure class="image is-4by3">
+            <img src="{{ row['image_link'] }}" alt="{{ row['title'] }}">
+        </figure>
+        <h3 class="title is-5">{{ row['title'] }}</h3>
+    </div>
+    {% endfor %}
+</div>

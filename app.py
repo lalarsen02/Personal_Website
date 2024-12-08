@@ -15,8 +15,6 @@ import flask
 import flask_mail
 import dotenv
 import database
-import json
-import html
 
 # -----------------------------------------------------------------------
 
@@ -79,5 +77,22 @@ def send_email():
             {"status": "error", 
              "message": "Failed to send email. Please Try Again Later."}
              ), 500
+    
+@app.route('/portfolio', methods=['GET'])
+def portfolio():
+    html_code = flask.render_template('portfolio.html')
+    return flask.make_response(html_code)
+
+@app.route('/getprojects', methods=['GET'])
+def get_projects():
+    sort = flask.request.args.get('sort', 'recent')
+
+    projects = database.get_projects(sort=sort)
+    
+    html_code = flask.render_template('projects.html',
+                                      table=projects)
+    response = flask.make_response(html_code)
+
+    return response
 
 # -----------------------------------------------------------------------

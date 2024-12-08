@@ -1,0 +1,26 @@
+Title: CNN Drum Classifier
+
+Description:
+Developed as part of a one-semester Digital Humanities Independent Work class during my Junior Year, this project explored the world of Signal Processing and Machine Learning/Artificial Intelligence. 
+
+In this project, I built a Convolutional Neural Network (CNN) to classify different one-shot drum samples, addressing the challenge of distinguishing between sounds with similar timbral qualities. A Convolutional Neural Network (CNN) is a deep learning model designed primarily for processing structured grid-like data, such as images. CNNs are particularly effective at identifying patterns, such as edges, shapes, textures, and objects, within visual data. A one-shot drum sample is a single, prerecorded sound of a drum instrument typically used in music production. 
+
+First, I gathered a collection of one-shot drum samples. After searching the internet for free drum sounds, I collected a dataset of 1000 drum samples: 250 kick drums, 250 snares, 250 toms, and 250 cymbals. 
+
+However, since CNNs are designed to study visual input, I first transformed the audio drum samples into a pictorial format. After much research, I settled upon MEL-Spectrograms, which most accurately represent drum sounds' frequency and temporal characteristics as humans would hear them. MEL-spectrograms convert audio signals into a 2D visual representation, where the x-axis represents time, the y-axis represents frequency, and the color intensity corresponds to the amplitude of those frequencies. An example is the image shown above. After converting all the drum samples into MEL-Spectrogram representations, I trained the CNN on 80% of those representations and tested it on the other 20%. 
+
+I built the CNN using PyTorch. The architecture consists of two convolutional layers, which extract the most important features from the input images, two max pooling layers, which reduce the spatial dimensions of the feature maps while retaining the most information, and two fully connected layers, which combine all the studied features to make a final prediction. 
+
+Overall, the CNN demonstrated remarkable performance, achieving a testing accuracy of 94%. This high level of accuracy indicates that my CNN was very effective in classifying sounds with subtle timbral differences. This project underscores the potential of CNNs in other sound classification tasks, paving the way for further advancements in audio recognition technology.
+
+Date Finished: 05/10/23
+
+Image Link: https://i.ibb.co/VJKt3Sg/Junior-Independent-Work.png
+
+YouTube Link: https://youtu.be/9-5okTRZGgQ
+
+Presentation Link: https://drive.google.com/file/d/1OXM1R-y-TUFHAzxhFeC_zuXg9vA7aBJL/view?usp=sharing
+
+Writeup Link: https://drive.google.com/file/d/1lviNqeej04vH8HLH1VqcEbTclFN-T-wa/view?usp=sharing
+
+Github Link: https://github.com/lalarsen02/COS_IW_Project

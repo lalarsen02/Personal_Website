@@ -1,0 +1,18 @@
+Title: Musical Variations 1
+
+Description:
+During the summer of 2023, I worked as an intern under Professor Diana Dabby of Olin College of Engineering. My task was to develop a program that combined chaos theory and state-of-the-art Artificial Intelligence algorithms to create new variations of songs. 
+
+First, I was assigned to investigate Music Information Retrieval Algorithms in categories like Stem Separation, Pitch Detection, and Chord Detection. Through this exploration, I gained an understanding of how these algorithms could be applied to extract meaningful features from audio. Stem Separation allowed me to isolate individual tracks, like vocals, percussion, bass, and guitar/piano. Pitch and chord detection algorithms provided tools for analyzing melodic and harmonic components.
+
+Building on these algorithms, I built a pipeline that utilized these programs to preprocess and analyze the audio tracks. This preprocessed data was then fed into an algorithm that applied chaos theory to introduce controlled randomness in generating novel variations. This approach enabled the program to produce outputs that were both musically coherent and artistically innovative, blending structure with unpredictability.
+
+By the end of the internship, the program could generate variations that not only captured the essence of the original songs but also introduced new, unique elements. This work deepened my appreciation for the intersection of science and art. Seeing how theoretical concepts like chaos theory could be translated into tangible and impactful creative tools was incredibly rewarding.
+
+Date Finished: 08/16/23
+
+Image Link: https://i.ibb.co/RvryCJw/Dabby-1.png
+
+Image Source Text: Image Adapted from Dabby, "Musical variations from a chaotic mapping"
+
+Image Source Link: https://pdfs.semanticscholar.org/b17a/a8d18a2c80aece770d839c5f039a55ef10e1.pdf6

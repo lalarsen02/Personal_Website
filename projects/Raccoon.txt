@@ -1,0 +1,21 @@
+Title: The Great Princeton Raccoon Invasion
+
+Description:
+"The Great Princeton Raccoon Invasion" was a game built with three.js where the player plays as a golf cart that is supposed to run over as many raccoons as possible before too many students are killed. It was designed as a final project for "Computer Graphics" with two other classmates: Everett Shen and Ilay Furman. 
+
+The game offers immersive physics, having dynamic gameplay with responsive controls, spatial sounds, and a third-person camera. Students and raccoons are modeled with animations and follow distinct behaviors that challenge players to navigate a campus-inspired map while managing collisions and boundaries. The game achieved smooth performance and engaging mechanics, including a fine-tuned difficulty system and acceleration/deceleration triggered by the player's actions. We also added a display with the score and controls for a better user experience. 
+
+Overall, this was my first exploration into game development. I gained hands-on experience with 3D modeling, physics engines, and collision detection while also learning how to balance gameplay mechanics for both performance and player engagement. Within the team, I was responsible for creating the map and writing code for collisions. This was a challenge because this was my first time using Blender, the primary tool for creating the map. I’m excited to build upon this game, potentially improving the graphics or adding a multiplayer mode.
+
+Date Finished: 12/15/23
+
+Image Link: https://i.ibb.co/BBr3MwH/Raccoon-Game.png
+
+Github Link: https://github.com/Everett-Shen/COS-426-Final-Assignment
+
+Writeup Link: https://drive.google.com/file/d/1-l_NBJk7x54NeuokHAXbNK3bsKUtuZt3/view?usp=sharing
+
+YouTube Link: https://www.youtube.com/watch?v=FxKWsLpdb3M&ab_channel=EverettShen
+
+Other Links:
+https://everett-shen.github.io/COS-426-Final-Assignment/

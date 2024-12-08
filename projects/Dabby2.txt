@@ -1,0 +1,18 @@
+Title: Musical Variations 2
+
+Description:
+In the summer of 2024, Dr. Diana Dabby of Olin College of Engineering rehired me as her Research Assistant. My task was to build a user-friendly Graphic User Interface (GUI) while refining and optimizing the code I had built the previous year. 
+
+As far as the GUI, this marked my first experience designing a complex interface entirely from scratch. It also was the first time I experimented with front-end development. I had to learn how to balance functionality with design to create an intuitive user experience. Among the many features I implemented was an Audio Player with a scrubbable slider, enabling users to navigate seamlessly through different sections of an audio file. This feature required not only attention to user experience but also a deep understanding of audio processing and GUI-event handling to ensure smooth and responsive interaction.
+
+Regarding the backend infrastructure, I created a server system between the GUI and the underlying code. This made it so that when a user initiates a command for a musical variation through the GUI, it sends a request to this server. This enabled seamless interaction between the client and server sides, allowing for simultaneous requests and real-time processing of user commands. Additionally, through careful analysis and optimization techniques, I managed to increase the execution speed of the application by more than 90%. This significant improvement meant that tasks that previously took up a considerable amount of time were now completed much faster, resulting in a smoother user experience and reduced latency.
+
+By the end of the summer, I delivered a fully functional and polished application that seamlessly integrated a responsive, user-friendly interface with an optimized backend system. The GUI made the program more accessible, and the server allowed users to experiment with variations in real-time. This work deepened my expertise in both front-end and backend development, significantly improved my problem-solving and optimization skills, and solidified my ability to design and implement complex software systems from the ground up.
+
+Date Finished: 08/16/24
+
+Image Link: https://i.ibb.co/gv8QYrR/Dabby-2.png
+
+Image Source Text: Image Adapted from Dabby, "Musical variations from a chaotic mapping"
+
+Image Source Link: https://pdfs.semanticscholar.org/b17a/a8d18a2c80aece770d839c5f039a55ef10e1.pdf6
