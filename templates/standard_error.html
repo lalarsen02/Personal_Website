@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error - Louis Larsen</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- For 32x32 and 16x16 icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+
+    <!-- For Apple Touch Devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body class="has-navbar-fixed-top">
+    {% include 'header.html' %}
+    <main>
+      <section class="hero error-hero">
+        <div class="hero-head">
+          <div class="container">
+            <h3 class="title">{{ title }}</h3>
+            <p class="body4">{{ error }}</p>
+            {% if title=='Project Not Found' %}
+            <p class="body4">
+                You can return to the portfolio page by clicking
+                <a href='/portfolio'>here</a>
+                or the homepage by clicking
+                <a href='/'>here</a>.
+              </p>
+            {% else %}
+            <p class="body4">
+              You can return to the homepage by clicking
+              <a href='/'>here</a>.
+            </p>
+            {% endif %}
+          </div>
+        </div>
+      </section>
+    </main>
+    {% include 'footer.html' %}
+  </body>
+</html>

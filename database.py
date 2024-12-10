@@ -10,6 +10,7 @@
 # -----------------------------------------------------------------------
 
 import os
+import sys
 import sqlalchemy
 import sqlalchemy.orm
 import dotenv
@@ -58,81 +59,101 @@ def add_project(
         imagesource_link, youtube_link, presentation_link, writeup_link,
         github_link, other_links):
     
-    new_project = Project(
-        title=title,
-        description=description,
-        date_finished=date_finished,
-        image_link=image_link,
-        imagesource_text=imagesource_text,
-        imagesource_link=imagesource_link,
-        youtube_link=youtube_link,
-        presentation_link=presentation_link,
-        writeup_link=writeup_link,
-        github_link=github_link,
-        other_links=other_links
-    )
+    try: 
+        new_project = Project(
+            title=title,
+            description=description,
+            date_finished=date_finished,
+            image_link=image_link,
+            imagesource_text=imagesource_text,
+            imagesource_link=imagesource_link,
+            youtube_link=youtube_link,
+            presentation_link=presentation_link,
+            writeup_link=writeup_link,
+            github_link=github_link,
+            other_links=other_links
+        )
 
-    with sqlalchemy.orm.Session(_engine) as session:
-        session.add(new_project)
-        session.commit()
-    print("database.py: Project added successfully.")
+        with sqlalchemy.orm.Session(_engine) as session:
+            session.add(new_project)
+            session.commit()
+        print("database.py: Project added successfully")
+    except Exception as ex:
+        print("database.py: Project addition unsuccessful")
+        print("database.py:" + str(ex), file=sys.stderr)
+        sys.exit(1)
 
 # Function to remove a project from the database
 def remove_project(title):
+    try:
+        with sqlalchemy.orm.Session(_engine) as session:
+            # Find the project by title and delete it
+            project_to_remove = session.query(Project).filter(
+                Project.title.ilike(title+'%')
+            ).first()
 
-    with sqlalchemy.orm.Session(_engine) as session:
-        # Find the project by title and delete it
-        project_to_remove = session.query(Project).filter(
-            Project.title.ilike(title+'%')
-        ).first()
-
-        if project_to_remove:
-            session.delete(project_to_remove)
-            session.commit()
-            print("database.py: Project removed successfully.")
-        else:
-            print("database.py: Project could not be found")
+            if project_to_remove:
+                session.delete(project_to_remove)
+                session.commit()
+                print("database.py: Project removed successfully.")
+            else:
+                print("database.py: Project deletion unsuccessful")
+                print("database.py: Project could not be found")
+    except Exception as ex:
+        print("database.py: Project deletion unsuccessful")
+        print("database.py:" + str(ex), file=sys.stderr)
+        sys.exit(1)
 
 # Function to clear all entries from the projects table
 def clear_project_table():
-    with sqlalchemy.orm.Session(_engine) as session:
-        session.query(Project).delete()
-        session.commit()
-    print("database.py: All projects cleared from the table")
+    try:
+        with sqlalchemy.orm.Session(_engine) as session:
+            session.query(Project).delete()
+            session.commit()
+        print("database.py: All projects cleared from the table")
+    except Exception as ex:
+        print("database.py: Table deletion unsuccessful")
+        
 
 # Function to retrieve projects by title from the database
 def get_projects(title='', sort='recent'):
     projects = []
+    try: 
+        with sqlalchemy.orm.Session(_engine) as session:
+            # Query for projects whose title matches the given string
+            if sort == 'recent':
+                query = session.query(Project).filter(
+                    Project.title.ilike(title+'%')
+                ).order_by(Project.date_finished.desc())
+            elif sort == 'alpha':
+                query = session.query(Project).filter(
+                    Project.title.ilike(title+'%')
+                ).order_by(Project.title)
+            
+            # Iterate over query results to build a list of project dictionaries
+            table = query.all()
+            for row in table:
+                project = {
+                    'title': row.title,
+                    'description': row.description,
+                    'date_finished': row.date_finished,
+                    'image_link': row.image_link,
+                    'imagesource_text': row.imagesource_text,
+                    'imagesource_link': row.imagesource_link,
+                    'youtube_link': row.youtube_link,
+                    'presentation_link': row.presentation_link,
+                    'writeup_link': row.writeup_link,
+                    'github_link': row.github_link,
+                    'other_links': row.other_links
+                }
+                projects.append(project)
 
-    with sqlalchemy.orm.Session(_engine) as session:
-        # Query for projects whose title matches the given string
-        if sort == 'recent':
-            query = session.query(Project).filter(
-                Project.title.ilike(title+'%')
-            ).order_by(Project.date_finished.desc())
-        elif sort == 'alpha':
-            query = session.query(Project).filter(
-                Project.title.ilike(title+'%')
-            ).order_by(Project.title)
-        
-        # Iterate over query results to build a list of project dictionaries
-        table = query.all()
-        for row in table:
-            project = {
-                'title': row.title,
-                'description': row.description,
-                'date_finished': row.date_finished,
-                'image_link': row.image_link,
-                'imagesource_text': row.imagesource_text,
-                'imagesource_link': row.imagesource_link,
-                'youtube_link': row.youtube_link,
-                'presentation_link': row.presentation_link,
-                'writeup_link': row.writeup_link,
-                'github_link': row.github_link,
-                'other_links': row.other_links
-            }
-            projects.append(project)
-
-    return projects
+        return projects, 0
+    except Exception as ex:
+        print("database.py: Unable to get projects")
+        print("database.py:" + str(ex), file=sys.stderr)
+        error_msg = "A server error occured. Please contact the system "
+        error_msg += "administrator."
+        return error_msg, 1
 
 # -----------------------------------------------------------------------

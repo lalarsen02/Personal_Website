@@ -88,15 +88,19 @@ def portfolio():
 def get_projects():
     sort = flask.request.args.get('sort', 'recent')
 
-    projects = database.get_projects(sort=sort)
-    for project in projects:
-        project['image_link'] = flask.url_for(
-            'static', filename=project['image_link'])
+    projects, status = database.get_projects(sort=sort)
+    if status == 0:
+        for project in projects:
+            project['image_link'] = flask.url_for(
+                'static', filename=project['image_link'])
+        
+        html_code = flask.render_template('projects.html',
+                                        table=projects)
+    else:
+        html_code = flask.render_template('projects_error.html',
+                                          error=projects)
     
-    html_code = flask.render_template('projects.html',
-                                      table=projects)
     response = flask.make_response(html_code)
-
     return response
 
 @app.route('/portfoliodetails', methods=['GET'])
@@ -104,36 +108,64 @@ def project_details():
     title = flask.request.args.get('title')
     title = title.replace('-', ' ')
     
-    project = database.get_projects(title=title)[0]
-    project['image_link'] = flask.url_for(
-        'static', filename=project['image_link'])
-    if project['presentation_link']:
-        project['presentation_link'] = flask.url_for(
-            'static', filename=project['presentation_link'])
-    if project['writeup_link']:
-        project['writeup_link'] = flask.url_for(
-            'static', filename=project['writeup_link'])
+    project, status = database.get_projects(title=title)
+    try:
+        if status == 0:
+            if not project or project[0].get('title') != title:
+                raise ValueError
+            project = project[0]
+            project['image_link'] = flask.url_for(
+                'static', filename=project['image_link'])
+            if project['presentation_link']:
+                project['presentation_link'] = flask.url_for(
+                    'static', filename=project['presentation_link'])
+            if project['writeup_link']:
+                project['writeup_link'] = flask.url_for(
+                    'static', filename=project['writeup_link'])
 
-    formatted_date = project['date_finished'].strftime("%B %Y")
-    html_description = newline_to_paragraphs(project['description'])
-    dictionaries = []
-    if project['other_links']:
-        dictionaries = newline_to_dict(project['other_links'])
-    
-    html_code = flask.render_template('projectdetails.html',
-                                      title=project['title'],
-                                      date=formatted_date,
-                                      description=html_description,
-                                      image_link=project['image_link'],
-                                      github=project['github_link'],
-                                      report=project['writeup_link'],
-                                      presentation=project['presentation_link'],
-                                      imagesource_link=project[
-                                          'imagesource_link'],
-                                      imagesource_text=project[
-                                          'imagesource_text'],
-                                      youtube=project['youtube_link'],
-                                      other=dictionaries)
+            formatted_date = project['date_finished'].strftime("%B %Y")
+            html_description = newline_to_paragraphs(project['description'])
+            dictionaries = []
+            if project['other_links']:
+                dictionaries = newline_to_dict(project['other_links'])
+            
+            html_code = flask.render_template('projectdetails.html',
+                                            title=project['title'],
+                                            date=formatted_date,
+                                            description=html_description,
+                                            image_link=project['image_link'],
+                                            github=project['github_link'],
+                                            report=project['writeup_link'],
+                                            presentation=project['presentation_link'],
+                                            imagesource_link=project[
+                                                'imagesource_link'],
+                                            imagesource_text=project[
+                                                'imagesource_text'],
+                                            youtube=project['youtube_link'],
+                                            other=dictionaries)
+        else:
+            html_code = flask.render_template('standard_error.html',
+                                            title="Project Details Error",
+                                            error=project)
+        response = flask.make_response(html_code)
+        return response
+    except ValueError:
+        error_msg = "The project you are looking for is not found."
+        html_code = flask.render_template(
+            'standard_error.html', title="Project Not Found",
+            error=error_msg)
+        response = flask.make_response(html_code)
+        return response
+
+# -----------------------------------------------------------------------
+
+@app.errorhandler(404)
+def not_found(e):
+    error_msg = "The page you are looking for does not exist."
+
+    html_code = flask.render_template('standard_error.html',
+                                      title="Page Not Found",
+                                      error=error_msg)
     response = flask.make_response(html_code)
 
     return response

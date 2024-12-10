@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Louis Larsen</title>
+    <title>Project Details - Louis Larsen</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <!-- For 32x32 and 16x16 icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
@@ -18,64 +18,66 @@
   </head>
   <body class="has-navbar-fixed-top">
     {% include 'header.html' %}
-    <section class="hero is-half-height">
-      <div class="hero-body project-hero-body">
-        <div class="container">
-          <figure class="image project-image">
-            <img src="{{ image_link }}" alt="{{ title }}">
-          </figure>
-          <div class="columns">
-            <div class="column has-text-centered">
-              <h3 class="title">{{ title }}</h3>
-              <p class="body4"><i>{{ date }}</i></p>
+    <main>
+      <section class="hero is-half-height">
+        <div class="hero-body project-hero-body">
+          <div class="container">
+            <figure class="image project-image">
+              <img src="{{ image_link }}" alt="{{ title }}">
+            </figure>
+            <div class="columns">
+              <div class="column has-text-centered">
+                <h3 class="title">{{ title }}</h3>
+                <p class="body4"><i>{{ date }}</i></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section project-section">
-      <div class="container">
-        {{ description|safe }}
-        {% if youtube %}
-          <figure class="image is-16by9">
-            <iframe
-              class="has-ratio"
-              width="640"
-              height="360"
-              src="{{ youtube }}"
-              frameborder="0"
-              allowfullscreen
-            ></iframe>
-          </figure>
-        {% endif %}
-        {% if github or report or presentation or other %}
-          <hr>
-          <h4 class="title smaller-title">Links</h4>
-          {% if report %}
-            <p class="body4"><a href="{{ report }}" target="_blank">Report</a></p>
+      </section>
+      <section class="section project-section">
+        <div class="container">
+          {{ description|safe }}
+          {% if youtube %}
+            <figure class="image is-16by9">
+              <iframe
+                class="has-ratio"
+                width="640"
+                height="360"
+                src="{{ youtube }}"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </figure>
           {% endif %}
-          {% if presentation %}
-            <p class="body4"><a href="{{ presentation }}" target="_blank">Presentation</a></p>
+          {% if github or report or presentation or other %}
+            <hr>
+            <h4 class="title smaller-title">Links</h4>
+            {% if report %}
+              <p class="body4"><a href="{{ report }}" target="_blank">Report</a></p>
+            {% endif %}
+            {% if presentation %}
+              <p class="body4"><a href="{{ presentation }}" target="_blank">Presentation</a></p>
+            {% endif %}
+            {% for link in other %}
+             <p class="body4"><a href="{{ link['link'] }}">{{ link['text'] }}</a></p>
+            {% endfor %} 
+            {% if github %}
+              <p class="body4"><a href="{{ github }}">Github Repository</a></p>
+            {% endif %}
           {% endif %}
-          {% for link in other %}
-            <p class="body4"><a href="{{ link['link'] }}">{{ link['text'] }}</a></p>
-          {% endfor %} 
-          {% if github %}
-            <p class="body4"><a href="{{ github }}">Github Repository</a></p>
+          {% if imagesource_link and imagesource_text %}
+            <hr>
+            <p class="body4"><a href="{{ imagesource_link }}">{{ imagesource_text }}</a></p>
+          {% elif imagesource_link %}
+            <hr>
+            <p class="body4"><a href="{{ imagesource_link }}">Image adapted from this source</a></p>
+          {% elif imagesource_text %}
+            <hr>
+            <p class="body4">{{ imagesource_text }}</p>
           {% endif %}
-        {% endif %}
-        {% if imagesource_link and imagesource_text %}
-          <hr>
-          <p class="body4"><a href="{{ imagesource_link }}">{{ imagesource_text }}</a></p>
-        {% elif imagesource_link %}
-          <hr>
-          <p class="body4"><a href="{{ imagesource_link }}">Image adapted from this source</a></p>
-        {% elif imagesource_text %}
-          <hr>
-          <p class="body4">{{ imagesource_text }}</p>
-        {% endif %}
-      </div>
-    </section> 
+        </div>
+      </section>
+    </main>
     {% include 'footer.html' %}
   </body>
 </html>  

@@ -3,6 +3,28 @@
 /* Author: Louis Larsen                                                    */
 /* ----------------------------------------------------------------------- */
 
+body {
+    min-height: 100vh;
+    margin: 0;
+}
+
+header {
+    min-height: 50px;
+}
+
+footer {
+    min-height: 50px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 .portfolio-logo {
     height: 44px;
     vertical-align: middle;
@@ -164,6 +186,10 @@ p.body4 {
     font-size: 24px;
 }
 
+.error-hero {
+    padding-top: 32px;
+}
+
 @media screen and (max-width: 1215px) {
     .main-hero h1 {
         margin-top: 60px;
@@ -184,6 +210,10 @@ p.body4 {
 
 @media screen and (max-width: 1023px) {
     .main-hero {
+        padding-top: 0px;
+    }
+
+    .error-hero {
         padding-top: 0px;
     }
 
