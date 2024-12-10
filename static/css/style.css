@@ -14,11 +14,17 @@
     border-bottom: 1px solid #ebebeb;
 }
 
-.navbar-menu.is-active .link {
-    display: inline-flex;
-    flex-direction: row;
+.navbar-menu.is-active {
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
 }
+
+.navbar-menu .navbar-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Optional, to center the icons */
+}  
 
 .main-hero {
     padding-top: 32px;

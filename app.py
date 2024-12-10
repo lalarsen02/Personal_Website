@@ -99,7 +99,7 @@ def get_projects():
 
     return response
 
-@app.route('/projectdetails', methods=['GET'])
+@app.route('/portfoliodetails', methods=['GET'])
 def project_details():
     title = flask.request.args.get('title')
     title = title.replace('-', ' ')

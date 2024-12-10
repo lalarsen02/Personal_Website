@@ -1,6 +1,6 @@
 <div class="grid is-col-min-15">
     {% for row in table: %}
-    <a href="/projectdetails?title={{ row['title'].replace(' ', '-') }}" class="cell has-text-centered">
+    <a href="/portfoliodetails?title={{ row['title'].replace(' ', '-') }}" class="cell has-text-centered">
         <figure class="image is-4by3">
             <img src="{{ row['image_link'] }}" alt="{{ row['title'] }}">
         </figure>
