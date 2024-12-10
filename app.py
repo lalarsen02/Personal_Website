@@ -150,7 +150,7 @@ def project_details():
         response = flask.make_response(html_code)
         return response
     except ValueError:
-        error_msg = "The project you are looking for is not found."
+        error_msg = "The project you are looking for does not exist."
         html_code = flask.render_template(
             'standard_error.html', title="Project Not Found",
             error=error_msg)
@@ -162,7 +162,6 @@ def project_details():
 @app.errorhandler(404)
 def not_found(e):
     error_msg = "The page you are looking for does not exist."
-
     html_code = flask.render_template('standard_error.html',
                                       title="Page Not Found",
                                       error=error_msg)

@@ -24,13 +24,21 @@
           <div class="container">
             <h3 class="title">{{ title }}</h3>
             <p class="body4">{{ error }}</p>
+            {% if title=='Project Not Found' or 'Page Not Found' %}
+            <p>This is either because:</p>
+            <ul style="list-style-type: disc;">
+              <li>There is an error with the URL. Please check your URL and try again.</li>
+              <li>The page has either been moved or deleted</li>
+              <br>
+            </ul>
+            {% endif %}
             {% if title=='Project Not Found' %}
             <p class="body4">
-                You can return to the portfolio page by clicking
-                <a href='/portfolio'>here</a>
-                or the homepage by clicking
-                <a href='/'>here</a>.
-              </p>
+              You can return to the portfolio page by clicking
+              <a href='/portfolio'>here</a>
+              or the homepage by clicking
+              <a href='/'>here</a>.
+            </p>
             {% else %}
             <p class="body4">
               You can return to the homepage by clicking
