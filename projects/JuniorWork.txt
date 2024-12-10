@@ -15,12 +15,12 @@ Overall, the CNN demonstrated remarkable performance, achieving a testing accura
 
 Date Finished: 05/10/23
 
-Image Link: https://i.ibb.co/VJKt3Sg/Junior-Independent-Work.png
+Image Link: images/CNN-Drum-Classifier.png
 
-YouTube Link: https://youtu.be/9-5okTRZGgQ
+YouTube Link: https://www.youtube.com/embed/9-5okTRZGgQ?si=b70khxRI8-AMPRtT
 
-Presentation Link: https://drive.google.com/file/d/1OXM1R-y-TUFHAzxhFeC_zuXg9vA7aBJL/view?usp=sharing
+Presentation Link: documents/presentation_junior_independent_work.pdf
 
-Writeup Link: https://drive.google.com/file/d/1lviNqeej04vH8HLH1VqcEbTclFN-T-wa/view?usp=sharing
+Writeup Link: documents/written_final_report_junior_independent_work.pdf
 
 Github Link: https://github.com/lalarsen02/COS_IW_Project

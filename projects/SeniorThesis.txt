@@ -13,7 +13,7 @@ Overall, this model demonstrated a state-of-the-art performance, scoring F1 scor
 
 Date Finished: 05/03/24
 
-Image Link: https://i.ibb.co/6cCQfSM/Senior-Thesis.png
+Image Link: images/Automatic-Drum-Transcription.png
 
 Image Source Text: Image adapted from Wu et al., "A Review of Automatic Drum Transcription"
 
@@ -21,6 +21,6 @@ Image Source Link: https://www.open-access.bcu.ac.uk/6180/1/Wu-et-al.-2018-A-rev
 
 Github Link: https://github.com/lalarsen02/Senior_Thesis
 
-Presentation Link: https://drive.google.com/file/d/12322uD-FLMNvpJ6I-dcg6XqK5BngVymU/view?usp=sharing
+Presentation Link: documents/presentation_senior_thesis.pdf
 
-Writeup Link: https://drive.google.com/file/d/1IhdrDEHuISRttZUo_ezQgItlKNHdki2Z/view?usp=sharing
+Writeup Link: documents/written_final_report_senior_thesis.pdf

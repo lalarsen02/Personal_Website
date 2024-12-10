@@ -11,6 +11,7 @@
 
 import os
 import sys
+import json
 import flask
 import flask_mail
 import dotenv
@@ -88,6 +89,9 @@ def get_projects():
     sort = flask.request.args.get('sort', 'recent')
 
     projects = database.get_projects(sort=sort)
+    for project in projects:
+        project['image_link'] = flask.url_for(
+            'static', filename=project['image_link'])
     
     html_code = flask.render_template('projects.html',
                                       table=projects)
@@ -95,4 +99,63 @@ def get_projects():
 
     return response
 
+@app.route('/projectdetails', methods=['GET'])
+def project_details():
+    title = flask.request.args.get('title')
+    title = title.replace('-', ' ')
+    
+    project = database.get_projects(title=title)[0]
+    project['image_link'] = flask.url_for(
+        'static', filename=project['image_link'])
+    if project['presentation_link']:
+        project['presentation_link'] = flask.url_for(
+            'static', filename=project['presentation_link'])
+    if project['writeup_link']:
+        project['writeup_link'] = flask.url_for(
+            'static', filename=project['writeup_link'])
+
+    formatted_date = project['date_finished'].strftime("%B %Y")
+    html_description = newline_to_paragraphs(project['description'])
+    dictionaries = []
+    if project['other_links']:
+        dictionaries = newline_to_dict(project['other_links'])
+    
+    html_code = flask.render_template('projectdetails.html',
+                                      title=project['title'],
+                                      date=formatted_date,
+                                      description=html_description,
+                                      image_link=project['image_link'],
+                                      github=project['github_link'],
+                                      report=project['writeup_link'],
+                                      presentation=project['presentation_link'],
+                                      imagesource_link=project[
+                                          'imagesource_link'],
+                                      imagesource_text=project[
+                                          'imagesource_text'],
+                                      youtube=project['youtube_link'],
+                                      other=dictionaries)
+    response = flask.make_response(html_code)
+
+    return response
+
 # -----------------------------------------------------------------------
+
+def newline_to_paragraphs(text):
+    lines = text.split('\n')
+    html = ''
+    for line in lines:
+        line = line.strip()
+        if line == '<hr>':
+            html += '<hr>'
+        elif line:
+            html += f'<p class="body4">{line}</p>'
+    return html
+
+def newline_to_dict(text):
+    lines = text.split('\n')
+    dictionaries = []
+    for line in lines:
+        line = line.strip()
+        dictionary = json.loads(line)
+        dictionaries.append(dictionary)
+    return dictionaries

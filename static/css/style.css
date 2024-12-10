@@ -75,6 +75,10 @@ p.body3 {
     color: #303030;
 }
 
+p.body4 {
+    margin-bottom: 1.5rem;
+}
+
 .styled-image {
     border-radius: 15px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
@@ -133,6 +137,25 @@ p.body3 {
     align-items: center;
     width: 95px;
     padding: 5px;
+}
+
+.hero.is-half-height .hero-body .project-image img {
+    max-height: 50vh; /* Limit the height to half the viewport height */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Prevent inline display issues */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.project-hero-body {
+    padding: 0;
+}
+
+.project-section {
+    padding-top: 0;
+}
+
+.smaller-title {
+    font-size: 24px;
 }
 
 @media screen and (max-width: 1215px) {

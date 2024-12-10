@@ -11,8 +11,8 @@ By the end of the internship, the program could generate variations that not onl
 
 Date Finished: 08/16/23
 
-Image Link: https://i.ibb.co/RvryCJw/Dabby-1.png
+Image Link: images/Musical-Variations-1.png
 
-Image Source Text: Image Adapted from Dabby, "Musical variations from a chaotic mapping"
+Image Source Text: Image adapted from Dabby, "Musical variations from a chaotic mapping"
 
 Image Source Link: https://pdfs.semanticscholar.org/b17a/a8d18a2c80aece770d839c5f039a55ef10e1.pdf6

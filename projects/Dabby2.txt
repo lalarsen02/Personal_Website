@@ -11,8 +11,8 @@ By the end of the summer, I delivered a fully functional and polished applicatio
 
 Date Finished: 08/16/24
 
-Image Link: https://i.ibb.co/gv8QYrR/Dabby-2.png
+Image Link: images/Musical-Variations-2.png
 
-Image Source Text: Image Adapted from Dabby, "Musical variations from a chaotic mapping"
+Image Source Text: Image adapted from Dabby, "Musical variations from a chaotic mapping"
 
 Image Source Link: https://pdfs.semanticscholar.org/b17a/a8d18a2c80aece770d839c5f039a55ef10e1.pdf6

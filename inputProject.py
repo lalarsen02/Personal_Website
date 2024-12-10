@@ -112,13 +112,6 @@ def main():
                 data['description'] = "\n".join(description_lines)
                 data['other_links'] = '\n'.join(other_lines)
 
-            # project = database.get_projects(data["title"])
-            # if project:
-            #     print("inputProject.py: Remove and Re-add Project")
-            #     database.remove_project(data['title'])
-            # else:
-            #     print("inputProject.py: Adding Project")
-
             database.add_project(
                 data['title'], data['description'], data['date_finished'],
                 data['image_link'], data['imagesource_text'],
