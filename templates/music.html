@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portfolio - Louis Larsen</title>
+    <title>Music - Louis Larsen</title>
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <!-- For 32x32 and 16x16 icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
@@ -21,47 +21,31 @@
     <main>
       <section class="hero banner-hero">
         <figure class="image">
-          <img src="{{ url_for('static', filename='images/project-banner (2).jpg') }}">
+          <img src="{{ url_for('static', filename='images/music-banner.jpg') }}">
         </figure>
       </section>
       <section class="section">
         <div class="container">
           <div class="columns">
             <div class="column has-text-centered">
-              <h2 class="title banner-title">Selected Projects</h2>
+              <h2 class="title banner-title">Musical Endeavors</h2>
             </div>
           </div>
-          <div class="dropdown">
-            <div class="dropdown-trigger">
-              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                <span>Sort Projects</span>
-                <span class="icon is-small">
-                  <i class="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </div>
-            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-              <div class="dropdown-content">
-                <a class="dropdown-item" id="recent">
-                  <span>Most Recent (Default)</span>
-                  <span class="icon is-small">
-                    <i class="fas fa-check" aria-hidden="true"></i>
-                  </span>
-                </a>
-                <a class="dropdown-item" id="alpha">
-                  <span>Alphabetical</span>
-                  <span class="icon is-small"></span>
-                </a>
-              </div>
-            </div>
+          <div class="tabs is-centered">
+            <ul>
+              <li class="is-active"><a id="rock">Rock Ensemble</a></li>
+              <li><a id="theater">Musical Theater</a></li>
+              <li><a id="orchestra">Orchestra</a></li>
+              <li><a id="songs">Songwriting</a></li>
+            </ul>
           </div>
-          <div class="project-grid" id="resultsDiv"></div>
+          <div class="music-html" id="resultsDiv"></div>
         </div>
       </section>
     </main>
     {% include 'footer.html' %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="{{ url_for('static', filename='js/dropdown.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/getProjects.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/musicTab.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/getMusic.js') }}"></script>
   </body>
-</html>
+</html>  

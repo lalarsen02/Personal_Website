@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume - Louis Larsen</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <!-- For 32x32 and 16x16 icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
+
+    <!-- For Apple Touch Devices -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body class="has-navbar-fixed-top">
+    {% include 'header.html' %}
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="columns">
+            <div class="column has-text-centered">
+              <h2 class="title banner-title">Coding Creatively</h2>
+            </div>
+          </div>
+          <div class="about-1">
+            <figure class="image ">
+              <img src="https://bulma.io/assets/images/placeholders/800x480.png">
+            </figure>
+            <p class="body5">
+              Hi, I'm Louis! I'm a Software Engineer and Musician from New York who is passionate about bridging creativity and technology.
+              I recently graduated from Princeton University with a degree in Computer Science and a minor in Music Performance and Composition.
+              My work spans everything from artificial intelligence research in music to developing websites and programs with user-centered designs.
+            </p>
+            <p class="body5">
+              I took my first Computer Science class in my sophomore year of college and immediately became fascinated with how it could bridge many disciplines to solve complex problems. 
+              Since then, I've worked on a range of projects that combine technical innovation with creative expression: 
+              I achieved breakthroughs in the field of Automatic Drum Transcription, 
+              developed tools to assist other Princeton students with course selection, 
+              and worked on a chaotic music variation algorithm under the mentorship of Professor Diana Dabby of Olin College. 
+              Another example of my work would be this website, which I built myself.
+            </p>
+          </div>
+          <div class="about-2">
+            <figure class="image ">
+              <img src="https://bulma.io/assets/images/placeholders/800x480.png">
+            </figure>
+            <p class="body5">
+              Besides Software Development, I'm also a drummer, songwriter, and music producer/recording engineer. 
+              At Princeton, I was the Percussion Section Leader for the Princeton University Orchestra, 
+              Stage Manager and drummer for the Princeton University Rock Ensemble, and drummer for both 
+              the Princeton Triangle Theater Club and Princeton University Players.  These roles taught me to 
+              adapt quickly, communicate clearly, and stay organized under pressure - skills that directly 
+              impact my approach to problem-solving and collaboration as a developer.
+            </p>
+            <p class="body5">
+              I'm currently in the process of writing and producing my debut EP. Stay tuned for updates and new tracks!
+            </p>
+          </div>
+          <p class="body2">Check out my resume <a href="{{ url_for('static', filename='documents/Louis Larsen - Resume 2024.pdf') }}">here</a>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    {% include 'footer.html' %}
+  </body>
+</html>  

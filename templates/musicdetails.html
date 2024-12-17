@@ -1,0 +1,19 @@
+<div class="columns">
+  <div class="column has-text-centered">
+    {{ description|safe }}
+  </div>
+</div>
+
+{% for video in videos %}
+  <figure class="image is-16by9">
+    <iframe
+      class="has-ratio"
+      width="640"
+      height="360"
+      src="{{ video }}"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </figure>
+  <br>
+{% endfor %}

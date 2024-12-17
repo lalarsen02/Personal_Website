@@ -124,29 +124,27 @@ def project_details():
                     'static', filename=project['writeup_link'])
 
             formatted_date = project['date_finished'].strftime("%B %Y")
-            html_description = newline_to_paragraphs(project['description'])
+            html_description = newline_to_paragraphs(
+                project['description'])
             dictionaries = []
             if project['other_links']:
                 dictionaries = newline_to_dict(project['other_links'])
             
-            html_code = flask.render_template('projectdetails.html',
-                                            title=project['title'],
-                                            date=formatted_date,
-                                            description=html_description,
-                                            image_link=project['image_link'],
-                                            github=project['github_link'],
-                                            report=project['writeup_link'],
-                                            presentation=project['presentation_link'],
-                                            imagesource_link=project[
-                                                'imagesource_link'],
-                                            imagesource_text=project[
-                                                'imagesource_text'],
-                                            youtube=project['youtube_link'],
-                                            other=dictionaries)
+            html_code = flask.render_template(
+                'projectdetails.html', title=project['title'],
+                date=formatted_date, description=html_description,
+                image_link=project['image_link'],
+                github=project['github_link'],
+                report=project['writeup_link'],
+                presentation=project['presentation_link'],
+                imagesource_link=project['imagesource_link'],
+                imagesource_text=project['imagesource_text'],
+                youtube=project['youtube_link'],
+                other=dictionaries)
         else:
-            html_code = flask.render_template('standard_error.html',
-                                            title="Project Details Error",
-                                            error=project)
+            html_code = flask.render_template(
+                'standard_error.html', title="Project Details Error",
+                error=project)
         response = flask.make_response(html_code)
         return response
     except ValueError:
@@ -156,6 +154,94 @@ def project_details():
             error=error_msg)
         response = flask.make_response(html_code)
         return response
+    
+@app.route('/music', methods=['GET'])
+def music():
+    html_code = flask.render_template('music.html')
+    return flask.make_response(html_code)
+
+@app.route('/getmusic', methods=['GET'])
+def get_music():
+    sort = flask.request.args.get('music', 'rock')
+
+    if sort == 'rock':
+        description = 'The following are a selection of videos of me '
+        description += 'playing with the <b>Princeton University Rock '
+        description += 'Ensemble</b>.'
+        description = newline_to_paragraphs(description)
+
+        videos = [
+            "https://www.youtube.com/embed/1YdXFp3KZ18?si=o21N03gHejUyIGjg",
+            "https://www.youtube.com/embed/KwN62OBKlFE?si=tRLkvQypzFFM0W2i",
+            "https://www.youtube.com/embed/OcQuE6c0Zgg?si=um2qsQZYezrBXlGQ",
+            "https://www.youtube.com/embed/BikX3NshRTQ?si=CKDRBpNE5d4iSW10"
+        ]
+
+        html_code = flask.render_template('musicdetails.html',
+                                          description=description,
+                                          videos=videos)
+    elif sort == 'theater':
+        description = 'The following are a selection of videos of me '
+        description += 'playing with the <b>Princeton University '
+        description += 'Triangle Club</b> and the <b>LaGuardia High '
+        description += 'School Musical</b>.'
+        description = newline_to_paragraphs(description)
+
+        videos = [
+            "https://www.youtube.com/embed/rjYxdpdKR6o?si=lpqzjo-wNGj63oQg",
+            "https://www.youtube.com/embed/hzzsQ9c0vII?si=-tcc4vZYYDVDXtW0",
+            "https://www.youtube.com/embed/pvATQqTayxQ?si=G-U3tzn6FACEzs-j"
+        ]
+
+        html_code = flask.render_template('musicdetails.html',
+                                          description=description,
+                                          videos=videos)
+    elif sort == 'orchestra':
+        description = 'The following are a selection of videos of me '
+        description += 'playing with the <b>Princeton University '
+        description += 'Orchestra</b> and the <b>LaGuardia High School '
+        description += 'Senior Orchestra</b>.'
+
+        videos = [
+            "https://www.youtube.com/embed/25lz4yEM5qI?si=swHA5ka0RxsWmsDq",
+            "https://www.youtube.com/embed/0dQnPEUe-yk?si=sRmXPFa3F3tcKeUP",
+            "https://www.youtube.com/embed/Vq5gA0QSmDs?si=qYJL7lZKclgjK4oX",
+            "https://www.youtube.com/embed/JxremZRzzMg?si=bUh3iNPUrAXbVSXk"
+        ]
+
+        html_code = flask.render_template('musicdetails.html',
+                                          description=description,
+                                          videos=videos)
+    elif sort == 'songs':
+        description = 'The following is a selection of my '
+        description += '<b>songwriting</b>. I\'m currently working on an '
+        description += 'EP. Stay Tuned!'
+
+        videos = [
+            "https://www.youtube.com/embed/SUbphqbrKaY?si=XMgNgGmALRpO7lph",
+            "https://www.youtube.com/embed/65fL-G7TNjQ?si=Blo_-FIJ1bhvtXRF",
+            "https://www.youtube.com/embed/eoxE2D0mSrQ?si=hfwXh2W_IyLSsNx1"
+        ]
+
+        html_code = flask.render_template('musicdetails.html',
+                                          description=description,
+                                          videos=videos)
+
+    else:
+        error_msg = "A server error occured. Please contact the system "
+        error_msg += "administrator."
+
+        html_code = flask.render_template('projects_error.html',
+                                          error=error_msg)
+    
+    response = flask.make_response(html_code)
+    return response
+
+
+@app.route('/about', methods=['GET'])
+def about():
+    html_code = flask.render_template('about.html')
+    return flask.make_response(html_code)
 
 # -----------------------------------------------------------------------
 

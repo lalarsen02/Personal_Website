@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <!-- For 32x32 and 16x16 icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon-16x16.png') }}">
 
     <!-- For Apple Touch Devices -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
@@ -24,21 +24,20 @@
           <div class="container">
             <div class="columns">
               <div class="column is-three-fifths">
-                <h1>Louis Larsen</h1>
-                <h2>Software Engineer</h2>
+                <h1>Hi, I'm Louis!</h1>
                 <p class="body1">
-                  I’m a recent graduate of Princeton University who majored in Computer Science and minored in Music Performance and Composition. With these two different worlds, I merge technical expertise with artistic creativity to develop state-of-the-art applications.
+                  I'm a <b>Software Engineer</b> who ____
                 </p>
                 <p>
                   <br>
                   <a href="/portfolio" class="button hero-button">
-                    See My Work
+                    View My Projects
                   </a>
                 </p>
               </div>
               <div class="column">
-                <figure class="image is-fullwidth styled-image">
-                  <img src="{{ url_for('static', filename='images/Portrait_full.png') }}">
+                <figure class="image is-fullwidth">
+                  <img class="styled-image" src="{{ url_for('static', filename='images/Portrait_full.png') }}">
                 </figure>
               </div>
             </div>
@@ -82,7 +81,7 @@
         <div class="container">
           <div class="columns">
             <div class="column is-two-fifths">
-              <h2>Let's Connect</h2>
+              <h2 class="title">Let's Connect</h2>
               <p class="body2">
                 Thank you for visiting my web portfolio. If you have any questions regarding the projects showcased here or are interested in collaborating, feel free to send me an email! Let's work together and bring ideas to life!
               </p>
