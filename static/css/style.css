@@ -220,13 +220,14 @@ li {
 
 .about-1 {
     width: 100%;
+    height: auto;
     line-height: 1.6;
 }
 
 .about-1 .image {
     float: right;
     margin: 0 0 10px 20px;
-    width: 400px;
+    width: 300px;
 }
 
 .about-1 .image img {
@@ -243,10 +244,10 @@ li {
 .about-2 .image {
     float: left;
     margin: 0 20px 10px 0;
-    width: 400px;
+    width: 500px;
 }
 
-.about-1 .image img {
+.about-2 .image img {
     width: 100%;
     height: auto;
     border-radius: 8px;

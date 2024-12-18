@@ -19,6 +19,11 @@
   <body class="has-navbar-fixed-top">
     {% include 'header.html' %}
     <main>
+      <section class="hero banner-hero">
+        <figure class="image">
+          <img src="{{ url_for('static', filename='images/about-banner (1).jpg') }}">
+        </figure>
+      </section>
       <section class="section">
         <div class="container">
           <div class="columns">
@@ -28,12 +33,13 @@
           </div>
           <div class="about-1">
             <figure class="image ">
-              <img src="https://bulma.io/assets/images/placeholders/800x480.png">
+              <img src="{{ url_for('static', filename='images/graduation.jpeg') }}">
             </figure>
             <p class="body5">
               Hi, I'm Louis! I'm a Software Engineer and Musician from New York who is passionate about bridging creativity and technology.
               I recently graduated from Princeton University with a degree in Computer Science and a minor in Music Performance and Composition.
-              My work spans everything from artificial intelligence research in music to developing websites and programs with user-centered designs.
+              My work includes everything from artificial intelligence research to developing websites and programs with user-centered designs,
+              like this one which I built myself.
             </p>
             <p class="body5">
               I took my first Computer Science class in my sophomore year of college and immediately became fascinated with how it could bridge many disciplines to solve complex problems. 
@@ -41,12 +47,11 @@
               I achieved breakthroughs in the field of Automatic Drum Transcription, 
               developed tools to assist other Princeton students with course selection, 
               and worked on a chaotic music variation algorithm under the mentorship of Professor Diana Dabby of Olin College. 
-              Another example of my work would be this website, which I built myself.
             </p>
           </div>
           <div class="about-2">
             <figure class="image ">
-              <img src="https://bulma.io/assets/images/placeholders/800x480.png">
+              <img src="{{ url_for('static', filename='images/drum_picture.jpg') }}">
             </figure>
             <p class="body5">
               Besides Software Development, I'm also a drummer, songwriter, and music producer/recording engineer. 
