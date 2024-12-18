@@ -9,6 +9,25 @@
 
 function handleResponse(response) {
     $("#resultsDiv").html(response);
+
+    // apply fade in and transition animations
+    const newElements = $("#resultsDiv").find("p, figure");
+    newElements.addClass("fade-in-up");
+
+    // Scroll-based visibility logic
+    const revealElements = () => {
+        const elements = document.querySelectorAll("#resultsDiv .fade-in-up");
+        elements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.classList.add("visible");
+            }
+        });
+    };
+
+    // Add scroll listener and trigger the check immediately
+    window.addEventListener("scroll", revealElements);
+    revealElements();
 }
 
 let request = null;
