@@ -34,7 +34,9 @@ function handleResponse(response) {
 let request = null;
 
 function getResults(sort = 'recent') {
+    console.log("here1", sort)
     if (request != null) request.abort();
+    console.log("here2", request)
 
     let url = `/getprojects?sort=${sort}`;
 
@@ -43,6 +45,7 @@ function getResults(sort = 'recent') {
         url: url,
         success: handleResponse,
     });
+    console.log(request)
 }
 
 function setup() {
