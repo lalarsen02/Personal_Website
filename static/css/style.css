@@ -376,12 +376,6 @@ li {
         margin-top: 0px;
     }
 
-    .portfolio-footer {
-        box-shadow: none;
-        justify-content: center;
-        align-items: center;
-    }
-
     .footer .navbar {
         display: flex;
         flex-direction: column;
@@ -390,6 +384,7 @@ li {
     
     .footer .navbar-menu {
         margin-top: 1rem;
+        box-shadow: none;
     }
     
     .footer .navbar-end {
