@@ -31,7 +31,6 @@ function handleResponse(response) {
     revealElements();
 }
 
-
 let request = null;
 
 function getResults(sort = 'recent') {
