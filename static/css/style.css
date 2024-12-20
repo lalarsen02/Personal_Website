@@ -155,9 +155,9 @@ p.body5 {
     background-color: #e6e6f8;
 }
 
-.skill {
-    border-left: 1px solid #bbc3cb;
-    border-right: 1px solid #bbc3cb;
+.skills h2 {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .skills h3 {
@@ -166,6 +166,11 @@ p.body5 {
     font-weight: 800;
     line-height: 24px;
     color: #202020
+}
+
+.skill {
+    border-left: 1px solid #bbc3cb;
+    border-right: 1px solid #bbc3cb;
 }
 
 .skill-clipart {
