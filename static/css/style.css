@@ -46,7 +46,7 @@ main {
     color: #0d1b2a;
 }
 
-.navbar-menu .navbar-group {
+.portfolio-navbar .navbar-menu .navbar-group {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -126,15 +126,7 @@ p.body5 {
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
-.footer {
-    background-color: #142236;
-}
-
-.portfolio-navbar-footer {
-    background-color: #142236;
-}
-
-.portfolio-footer {
+.footer-color {
     background-color: #142236;
 }
 
@@ -349,7 +341,7 @@ li {
         cursor: pointer;
     }
 
-    .navbar-menu {
+    .portfolio-navbar .navbar-menu {
         align-items: stretch;
         padding: 1.5em;
         border-radius: 1em;
@@ -367,7 +359,7 @@ li {
         pointer-events: none;
     }
     
-    .navbar-menu.is-active {
+    .portfolio-navbar .navbar-menu.is-active {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -388,6 +380,21 @@ li {
         box-shadow: none;
         justify-content: center;
         align-items: center;
+    }
+
+    .footer .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer .navbar-menu {
+        margin-top: 1rem;
+    }
+    
+    .footer .navbar-end {
+        display: flex;
+        justify-content: center;
     }
 
     .contact h2 {
