@@ -49,7 +49,7 @@ function getResults(sort = 'recent') {
 }
 
 function setup() {
-    getResults();
+    // getResults();
 
     $("#recent").on("click", function () {
         getResults('recent');
