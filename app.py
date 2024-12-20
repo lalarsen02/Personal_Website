@@ -87,10 +87,8 @@ def portfolio():
 @app.route('/getprojects', methods=['GET'])
 def get_projects():
     sort = flask.request.args.get('sort', 'recent')
-    print(sort)
 
     projects, status = database.get_projects(sort=sort)
-    print(projects, status)
     if status == 0:
         for project in projects:
             project['image_link'] = flask.url_for(
