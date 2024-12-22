@@ -3,11 +3,6 @@
 /* Author: Louis Larsen                                                    */
 /* ----------------------------------------------------------------------- */
 
-body {
-    min-height: 100vh;
-    margin: 0;
-}
-
 header {
     min-height: 50px;
 }
@@ -17,6 +12,8 @@ footer {
 }
 
 body {
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -43,6 +40,10 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    color: #0d1b2a;
+}
+
+.brand h2 {
     color: #0d1b2a;
 }
 
@@ -119,6 +120,7 @@ p.body5 {
     background-color: #ffd827;
     border-color: #ddb71d;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    color: #202020;
 }
 
 .styled-image {
